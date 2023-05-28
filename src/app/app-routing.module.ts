@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './core/components/login/login.component';
-import { PageNotfoundComponent } from './core/components/page-notfound/page-notfound.component';
+import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
+import { LoginPageService } from './core/components/login/login-page.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'page', loadChildren: ()=> import('./pages/pages.module').then(m=> m.PagesModule) },
-  { path: '**', component: PageNotfoundComponent },
+  { path: 'login', providers:[LoginPageService], component: LoginComponent },
+  { path: 'page', loadChildren: () => import('./pages/pages.module').then(m=> m.PagesModule) },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

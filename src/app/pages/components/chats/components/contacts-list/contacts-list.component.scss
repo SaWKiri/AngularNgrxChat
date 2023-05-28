@@ -1,0 +1,95 @@
+// .chats-container {
+//   width: 150px;
+//   background-color: white;
+//   border-radius: 10px;
+//   margin-inline-start: 5px;
+//   margin-top: 10px;
+//   margin-bottom: 10px;
+//   padding: 5px;
+//   overflow: hidden;
+
+//   .contacts {
+//     .contact {
+//       display: flex;
+//       border-radius: 3px;
+//       margin-top: 3px;
+//       margin-bottom: 3px;
+//       padding: 3px;
+
+//       .profile-img {
+//         padding: 5px;
+//         border-radius: 30px;
+//       }
+//       .chat-content {
+//         width: 100%;
+//         font-size: 9px;
+
+//         .info-container {
+//           display: flex;
+//           width: 100%;
+//           justify-content: space-between;
+//           font-size: 8px;
+
+//           .date {
+//             font-size: 8px;
+//           }
+//         }
+
+
+//         .last-chat-preview {
+//           margin-top: 5px;
+//           width: 100%;
+//           display: flex;
+//           justify-content: flex-end;
+//         }
+//       }
+//     }
+//     .contact:hover {
+//       background-color: darkgray;
+//     }
+//   }
+// }
+.chats-container {
+  width: 150px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px 5px;
+  padding: 5px;
+  overflow: hidden;
+  }
+
+  .chats-container .contacts .contact {
+  display: flex;
+  border-radius: 3px;
+  margin: 3px 0;
+  padding: 3px;
+  }
+
+  .chats-container .contacts .contact .profile-img {
+  padding: 5px;
+  border-radius: 30px;
+  }
+
+  .chats-container .contacts .contact .chat-content {
+  width: 100%;
+  font-size: 9px;
+  }
+
+  .chats-container .contacts .contact .chat-content .info-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8px;
+  }
+
+  .chats-container .contacts .contact .chat-content .info-container .date {
+  font-size: 8px;
+  }
+
+  .chats-container .contacts .contact .chat-content .last-chat-preview {
+  margin-top: 5px;
+  justify-content: flex-end;
+  }
+
+  .chats-container .contacts .contact:hover {
+  background-color: darkgray;
+  }

@@ -1,0 +1,20 @@
+<div class="chats-container">
+  <div class="search-chats">
+    <label for="search-chat">Search</label>
+    <input id="search-chat" type="text"/>
+  </div>
+  <div class="contacts">
+    <div class="contact" *ngFor="let chat of contacts">
+      <img class="profile-img" [src]="chat.contact.image" alt="" width="20px" height="20px">
+      <div class="chat-content">
+        <div class="info-container">
+          <div>{{chat.contact.name}}</div>
+          <div class="date">{{chat.lastMessageDate | date: 'shortTime'}}</div>
+        </div>
+        <div class="last-chat-preview">
+          {{chat.messagePreview}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
