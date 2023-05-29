@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Chats, selectChatsAll } from 'src/app/state/app-chats';
-import { AppState } from 'src/app/state/reducer';
+import { Chats, selectChatsAll } from 'src/app/core/state/app-chats';
+import { AppState } from 'src/app/core/state/reducer';
 
 
 @Component({

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { BaseHttpService } from '../../services/base-http.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { setContacts } from 'src/app/state/app-chats';
-import { AppState } from 'src/app/state/reducer';
+import { setContacts } from '../../state/app-chats';
+import { AppState } from '../../state/reducer';
 
 
 export const ChatHistory = [
