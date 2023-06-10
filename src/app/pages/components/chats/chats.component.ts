@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Chats, selectChatsAll } from 'src/app/core/state/app-chats';
 import { AppState } from 'src/app/core/state/reducer';
@@ -8,6 +8,7 @@ import { AppState } from 'src/app/core/state/reducer';
   selector: 'app-chats',
   templateUrl: './chats.component.html',
   styleUrls: ['./chats.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChatsComponent {
   contactsList$: any;

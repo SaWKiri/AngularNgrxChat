@@ -7,3 +7,5 @@ export const selectIsLogedIn = createSelector(
   selectAuth,
   (state) => state.isLogedIn
 );
+
+export const selectToken = createSelector(selectAuth, (state) => state.token);

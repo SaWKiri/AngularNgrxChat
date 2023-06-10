@@ -7,8 +7,7 @@ import { CoreModule } from './core/core.module';
 import { appInterseptorsProviders } from './core/interceptors';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './core/components/login/login.component';
-
-
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,7 @@ import { LoginComponent } from './core/components/login/login.component';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     appInterseptorsProviders

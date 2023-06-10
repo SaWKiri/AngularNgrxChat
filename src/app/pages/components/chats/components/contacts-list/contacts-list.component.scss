@@ -35,7 +35,6 @@
 //           }
 //         }
 
-
 //         .last-chat-preview {
 //           margin-top: 5px;
 //           width: 100%;
@@ -56,40 +55,40 @@
   margin: 10px 5px;
   padding: 5px;
   overflow: hidden;
-  }
+}
 
-  .chats-container .contacts .contact {
+.chats-container .contacts .contact {
   display: flex;
   border-radius: 3px;
   margin: 3px 0;
   padding: 3px;
-  }
+}
 
-  .chats-container .contacts .contact .profile-img {
+.chats-container .contacts .contact .profile-img {
   padding: 5px;
   border-radius: 30px;
-  }
+}
 
-  .chats-container .contacts .contact .chat-content {
+.chats-container .contacts .contact .chat-content {
   width: 100%;
   font-size: 9px;
-  }
+}
 
-  .chats-container .contacts .contact .chat-content .info-container {
+.chats-container .contacts .contact .chat-content .info-container {
   display: flex;
   justify-content: space-between;
   font-size: 8px;
-  }
+}
 
-  .chats-container .contacts .contact .chat-content .info-container .date {
+.chats-container .contacts .contact .chat-content .info-container .date {
   font-size: 8px;
-  }
+}
 
-  .chats-container .contacts .contact .chat-content .last-chat-preview {
+.chats-container .contacts .contact .chat-content .last-chat-preview {
   margin-top: 5px;
   justify-content: flex-end;
-  }
+}
 
-  .chats-container .contacts .contact:hover {
+.chats-container .contacts .contact:hover {
   background-color: darkgray;
-  }
+}

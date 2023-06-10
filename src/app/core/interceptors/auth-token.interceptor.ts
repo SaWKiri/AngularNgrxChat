@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable, catchError } from 'rxjs';
+import { Observable, catchError, of, switchMap } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 @Injectable()
@@ -17,14 +17,15 @@ export class AuthTokenInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const token = this.authService.getAuthToken();
+    return of('asdasda').pipe(switchMap(token => {
+      // const token = this.authService.getAuthToken();
+      if (token) {
+        request = request.clone({
+          setHeaders: {...request.headers , Authorization: `Authorization token ${token}` },
+        });
+      }
 
-    if (token) {
-      request = request.clone({
-        setHeaders: { Authorization: `Authorization token ${token}` },
-      });
-    }
-
-    return next.handle(request);
+      return next.handle(request);
+    }));
   }
 }
