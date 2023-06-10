@@ -9,10 +9,15 @@
     width: 30%;
     margin: auto;
     border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     .input-container {
       display: flex;
       flex-direction: column;
+
+      form {
+        display: contents;
+      }
 
       input {
         width: 100%;
@@ -20,7 +25,17 @@
       }
 
       .login-button-container {
-        margin: auto;
+        width: 100%;
+        display: flex;
+
+        button {
+          margin: auto;
+        }
+      }
+
+      .error {
+        font-size: 10px;
+        color: red;
       }
 
       .center {

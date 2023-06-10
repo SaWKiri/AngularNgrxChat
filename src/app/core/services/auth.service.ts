@@ -16,13 +16,12 @@ export class AuthService {
   }
 
   public isAuthenticated(): Observable<boolean> {
-    let token;
     return this.store.select(selectToken).pipe(map(token => {
-      return true;
+      return !!token;
     }));;
   }
 
   public login(): Observable<any> {
-    return of('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9');
+    return of('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9').pipe();
   }
 }

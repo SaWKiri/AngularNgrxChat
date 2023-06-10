@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { setContacts } from '../../state/app-chats';
 import { AppState } from '../../state/reducer';
-
+import { AuthService } from '../../services/auth.service';
 
 export const ChatHistory = [
   {
@@ -104,20 +104,21 @@ export const ChatHistory = [
     },
     lastMessageDate: new Date(),
     messagePreview: 'hi, how are you?',
-  }
+  },
 ];
 
-
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginPageService {
+  constructor(
+    private readonly state: Store<AppState>,
+    private readonly authService: AuthService,
+    private readonly router: Router
+  ) {}
 
-  constructor(private readonly state: Store<AppState>, private readonly router: Router) { }
-
-  login(username: string, password: string) {
-    this.state.dispatch(setContacts({contactsList: ChatHistory}))
+  login(login: Partial<{ username: string | null; password: string | null }>) {
+    this.state.dispatch(setContacts({ contactsList: ChatHistory }));
     this.router.navigateByUrl('page/chats');
   }
 }

@@ -2,13 +2,21 @@
   <div class="card">
     <div class="input-container">
       <div class="center">
-        <label for="username">User Name</label>
-        <input id="username" type="text" />
-        <label for="password">Passwortd</label>
-        <input id="password" type="password" />
-        <div class="login-button-container">
-          <button routerLink="/page" (click)="onLoginClick()">Login</button>
-        </div>
+        <form  [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+          <label  for="username">User Name</label>
+          <input id="username" formControlName="userName" type="text" />
+          <div class="error" *ngIf="userName?.errors &&  (userName.dirty || userName.touched)">
+             User Name Required
+          </div>
+          <label for="password">Password</label>
+          <input id="password" formControlName="password" type="password" />
+          <div class="error" *ngIf="password?.errors && (password.dirty || password.touched)">
+            Password Required
+          </div>
+          <div class="login-button-container">
+            <button type="submit"  [disabled]="!loginForm.valid">Login</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

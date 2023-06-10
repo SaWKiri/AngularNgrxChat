@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginPageService } from './login-page.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +11,23 @@ import { LoginPageService } from './login-page.service';
 })
 export class LoginComponent {
 
-  constructor(private loginPageService: LoginPageService){
+  loginForm = new FormGroup({
+    userName: new FormControl<string|null>('', Validators.required),
+    password: new FormControl<string|null>('', Validators.required)
+  })
 
+  get userName(): FormControl<string|null> {
+    return this.loginForm.controls.userName;
   }
 
+  get password(): FormControl<string|null> {
+    return this.loginForm.controls.password;
+  }
 
-  onLoginClick() {
-    debugger;
-    this.loginPageService.login('username', 'password');
+  constructor(private loginPageService: LoginPageService){}
+
+
+  onLoginSubmit() {
+    this.loginPageService.login(this.loginForm.value);
   }
 }
