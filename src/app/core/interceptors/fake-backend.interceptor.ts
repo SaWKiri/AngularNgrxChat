@@ -15,9 +15,14 @@ import {
   of,
   throwError,
 } from 'rxjs';
+import { CHATS, TOKEN, USER } from './fakeData';
+
+
+
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
+
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
@@ -33,7 +38,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         case url.endsWith('/authenticate') && method === 'POST':
           return authenticate();
         case url.endsWith('/chats') && method === 'GET':
-          return authenticate();
+          return getChats();
         default:
           // pass through any requests not handled above
           return next.handle(request);
@@ -43,24 +48,32 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     // route functions
 
     function login() {
-      const { username } = body;
       return ok({
-        username,
-        id: '123456',
-        token: 'fdg3g34g3',
+        token: TOKEN,
       });
+    }
+
+    function getUser() {
+      return ok(USER);
+    }
+
+    function getUserChats() {
+      return ok(CHATS);
     }
 
     function authenticate() {
       const { token } = body;
       if (!token) return unauthorized();
 
-      return ok({ token: 'asdasdaskljqe' });
+      return ok({ token: TOKEN });
+    }
+
+    function getChats() {
+      return ok({ chats: [{ id: 1, name: 'chat1' }] });
     }
 
     // helper functions
-
-    function ok(body?: any) {
+    function ok<T = any>(body?: T) {
       return of(new HttpResponse({ status: 200, body })).pipe(delay(500)); // delay observable to simulate server api call
     }
 
